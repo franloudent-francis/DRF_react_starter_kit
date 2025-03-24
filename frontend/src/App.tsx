@@ -3,6 +3,7 @@ import Login from "@/pages/Login.tsx";
 import { Toaster } from "sonner";
 import Home from "@/pages/Home.tsx";
 import ProtectedRoute from "@/auth/ProtectedRoute";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -12,6 +13,12 @@ function App() {
         <Route path="/" element={
           <ProtectedRoute>
              <Home />
+          </ProtectedRoute>
+         
+          } />
+          <Route path="/test" element={
+          <ProtectedRoute>
+            <Test/>
           </ProtectedRoute>
          
           } />

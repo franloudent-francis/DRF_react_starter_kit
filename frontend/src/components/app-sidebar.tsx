@@ -11,9 +11,16 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { useLocation } from "react-router"
 
 
-const data = 
+
+
+
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const {pathname}= useLocation()
+  console.log(pathname)
+  const data = 
   [
     
     {
@@ -23,20 +30,18 @@ const data =
         {
           title: "Home",
           url: "/",
-          isActive: true,
+          isActive: pathname==="/",
         },
         {
           title: "Your routes",
-          url: "/",
+          url: "/test",
+          isActive: pathname==="/test",
           
         }
       ],
     },
     
   ]
-
-
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -52,7 +57,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
+                    <SidebarMenuButton asChild isActive={item.isActive} >
                       <a href={item.url}>{item.title}</a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

@@ -17,7 +17,7 @@ import { Button } from "../ui/button";
 import { User } from "lucide-react";
 import useAuth from "@/auth/useAuth";
 
-export default function Navbar({ children }: { children: React.ReactNode }) {
+export default function Navbar({ children }: { children: React.ReactNode}) {
     const {logout} = useAuth()
   return (
     <SidebarProvider>

@@ -54,6 +54,8 @@ export function LoginForm({
 
      
 
+    }else{
+      toast.warning("Please enter username and password")
     }
 
 
